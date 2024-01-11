@@ -1,8 +1,131 @@
 import React from 'react'
+import SideBar from './Components/SideBar';
+import { Box } from '@mui/material';
+import NavBar from './Components/NavBar';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import Stack from '@mui/material/Stack';
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <>
+    <NavBar/>
+    <Box height={80}/>
+        <Box sx={{ display: 'flex' }}>
+    <SideBar/>
+
+
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box height={50}/>
+
+      <Grid container spacing={2}>
+        <Grid item xs={8}>
+        <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 3, sm: 1, md: 20 }}>
+        <Card sx={{ maxWidth: 45, minWidth:300 }}>
+       <CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+        <Card sx={{ maxWidth: 45, minWidth:300}}>
+       <CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+        <Card sx={{ maxWidth: 45,minWidth:300 }}>
+       <CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Stack>
+        </Grid>
+        <Grid item xs={8}>
+        <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 3, sm: 1, md: 20 }}>
+        <Card sx={{ maxWidth: 45,minWidth:300 }}>
+       <CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+
+
+        <Card sx={{ maxWidth: 45,minWidth:300 }}>
+       <CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+
+
+        <Card sx={{ maxWidth: 45,minWidth:300 }}>
+       <CardActionArea>
+        <CardContent>
+          
+          <Typography gutterBottom variant="h5" component="div" >
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Stack>
+    <Card>
+
+    </Card>
+        </Grid>
+        </Grid>
+      </Box>
+    </Box>
+
+
+    </>
   )
 }
 
