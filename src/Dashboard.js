@@ -13,7 +13,7 @@ const Dashboard = () => {
   return (
     <>
     <NavBar/>
-    <Box height={80}/>
+    <Box height={30}/>
         <Box sx={{ display: 'flex' }}>
     <SideBar/>
 

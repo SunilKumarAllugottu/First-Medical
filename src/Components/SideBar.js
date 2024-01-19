@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled, createTheme, ThemeProvider} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -22,7 +22,6 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import GroupIcon from '@mui/icons-material/Group';
 import DriveEtaOutlinedIcon from '@mui/icons-material/DriveEtaOutlined';
 import { RiSteering2Fill } from "react-icons/ri";
-
 
 
 const drawerWidth = 240;
@@ -77,16 +76,33 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function SideBar() {
-  const theme = useTheme();
+  const theme = createTheme({
+    palette:{
+      primary:{
+        main:'#FFFFFF'
+      }
+    }
+  });
+
   // const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
   const open = useAppStore((state) => state.dopen);
 
+
+
+  
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <Box height={50}/>
-      <Drawer variant="permanent" open={open}>
+      <ThemeProvider theme={theme}>
+      <Drawer  PaperProps={{
+              sx: {
+                backgroundColor: "#0054A4",
+                color: "white"
+              }
+            }}
+            variant="permanent" open={open} >
         <DrawerHeader>
           <IconButton >
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -109,9 +125,9 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <SpaceDashboardRoundedIcon/>
+                  <SpaceDashboardRoundedIcon color='primary'/>
                 </ListItemIcon>
-                <ListItemText primary="Dash Board" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText  primary="Dash Board" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
             
@@ -119,6 +135,7 @@ export default function SideBar() {
             <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=>navigate("/ScheduleRaide")}>
               <ListItemButton
                 sx={{
+                  fontFamily:'Montserrat',
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
@@ -131,7 +148,7 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <AccessTimeIcon />
+                  <AccessTimeIcon color='primary'/>
                 </ListItemIcon>
                 <ListItemText primary="Schedule A Raide" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -154,7 +171,7 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <AirportShuttleIcon/>
+                  <AirportShuttleIcon color='primary'/>
                 </ListItemIcon>
                 <ListItemText primary="Ongoing Rides" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -175,7 +192,7 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <RiSteering2Fill fontSize={25} />
+                  <RiSteering2Fill fontSize={25} color='white' />
                 </ListItemIcon>
                 <ListItemText primary="Drivers" sx={{ opacity: open ? 1 : 0, }} />
               </ListItemButton>
@@ -196,7 +213,7 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <DriveEtaOutlinedIcon/>
+                  <DriveEtaOutlinedIcon color='primary'/>
                 </ListItemIcon>
                 <ListItemText primary="Vehicles" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -217,7 +234,7 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <GroupIcon />
+                  <GroupIcon  color='primary'/>
                 </ListItemIcon>
                 <ListItemText primary="Users" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -238,7 +255,7 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <ReceiptLongIcon />
+                  <ReceiptLongIcon color='primary' />
                 </ListItemIcon>
                 <ListItemText primary="Reports" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -259,7 +276,7 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <SettingsIcon/>
+                  <SettingsIcon color='primary'/>
                 </ListItemIcon>
                 <ListItemText primary="Settings" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -267,6 +284,7 @@ export default function SideBar() {
         </List>
         <Divider />  
       </Drawer>
+      </ThemeProvider>
     </Box>
   );
 }

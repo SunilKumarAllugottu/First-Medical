@@ -12,7 +12,7 @@ const ScheduleRaide = () => {
         <Box sx={{ display: 'flex' }}>
     <SideBar/>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-    <h1>ScheduleRaide</h1>
+    <h1 >Schedule a Raide</h1>
       </Box>
     </Box>
     
