@@ -13,14 +13,14 @@ const Dashboard = () => {
   return (
     <>
     <NavBar/>
-    <Box height={30}/>
+    <Box height={80}/>
         <Box sx={{ display: 'flex' }}>
     <SideBar/>
 
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <h1>Dashboard <span style={{color:'#888888'}}>Admin panel</span></h1>
       <Box height={50}/>
-
       <Grid container spacing={2}>
         <Grid item xs={8}>
         <Stack

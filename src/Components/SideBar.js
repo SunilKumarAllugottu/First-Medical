@@ -5,9 +5,9 @@ import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+// import IconButton from '@mui/material/IconButton';
+// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+// import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -24,7 +24,7 @@ import DriveEtaOutlinedIcon from '@mui/icons-material/DriveEtaOutlined';
 import { RiSteering2Fill } from "react-icons/ri";
 
 
-const drawerWidth = 240;
+const drawerWidth = 210;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -47,14 +47,14 @@ const closedMixin = (theme) => ({
   },
 });
 
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
+// const DrawerHeader = styled('div')(({ theme }) => ({
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'flex-end',
+//   padding: theme.spacing(0, 1),
+//   // necessary for content to be below app bar
+//   ...theme.mixins.toolbar,
+// }));
 
 
 
@@ -81,6 +81,9 @@ export default function SideBar() {
       primary:{
         main:'#FFFFFF'
       }
+    },
+    typography:{
+      fontSize:15,
     }
   });
 
@@ -92,9 +95,8 @@ export default function SideBar() {
 
   
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} >
       <CssBaseline />
-      <Box height={50}/>
       <ThemeProvider theme={theme}>
       <Drawer  PaperProps={{
               sx: {
@@ -103,17 +105,19 @@ export default function SideBar() {
               }
             }}
             variant="permanent" open={open} >
-        <DrawerHeader>
+      <Box height={95}/>
+
+        {/* <DrawerHeader>
           <IconButton >
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
+        <Divider /> */}
         <List>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>navigate("/")}>
+            <ListItem disablePadding sx={{ display: 'block', "&:hover":{bgcolor:"#138CFF"} }} onClick={()=>navigate("/")}>
               <ListItemButton
                 sx={{
-                   minHeight: 48,
+                   minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -127,16 +131,16 @@ export default function SideBar() {
                 >
                   <SpaceDashboardRoundedIcon color='primary'/>
                 </ListItemIcon>
-                <ListItemText  primary="Dash Board" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText  primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
             
             
-            <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=>navigate("/ScheduleRaide")}>
+            <ListItem disablePadding sx={{ display: 'block',"&:hover":{bgcolor:"#138CFF"} }}  onClick={()=>navigate("/ScheduleRaide")}>
               <ListItemButton
                 sx={{
                   fontFamily:'Montserrat',
-                  minHeight: 48,
+                  minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -150,16 +154,16 @@ export default function SideBar() {
                 >
                   <AccessTimeIcon color='primary'/>
                 </ListItemIcon>
-                <ListItemText primary="Schedule A Raide" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Schedule A Ride" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
            
            
            
-            <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=>navigate("/OngoingRaide")}>
+            <ListItem disablePadding sx={{ display: 'block',"&:hover":{bgcolor:"#138CFF"} }}  onClick={()=>navigate("/OngoingRaide")}>
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -177,10 +181,11 @@ export default function SideBar() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>navigate("/Drivers")}>
+            <ListItem disablePadding sx={{ display: 'block' , "&:hover":{bgcolor:"#138CFF"} }}
+            onClick={()=>navigate("/Drivers")}>
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -192,16 +197,16 @@ export default function SideBar() {
                     justifyContent: 'center',
                   }}
                 >
-                  <RiSteering2Fill fontSize={25} color='white' />
+                  <RiSteering2Fill fontSize={25} color='white' height={500}/>
                 </ListItemIcon>
                 <ListItemText primary="Drivers" sx={{ opacity: open ? 1 : 0, }} />
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=>navigate("/Vehicles")}>
+            <ListItem disablePadding sx={{ display: 'block', "&:hover":{bgcolor:"#138CFF"} }}  onClick={()=>navigate("/Vehicles")}>
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -219,10 +224,10 @@ export default function SideBar() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }}  onClick={()=>navigate("/Users")}>
+            <ListItem disablePadding sx={{ display: 'block',"&:hover":{bgcolor:"#138CFF"} }}  onClick={()=>navigate("/Users")}>
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -240,10 +245,10 @@ export default function SideBar() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>navigate("/Reports")}>
+            <ListItem disablePadding sx={{ display: 'block', "&:hover":{bgcolor:"#138CFF"} }} onClick={()=>navigate("/Reports")}>
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -261,10 +266,10 @@ export default function SideBar() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>navigate("/Settings")}>
+            <ListItem disablePadding sx={{ display: 'block', "&:hover":{bgcolor:"#138CFF"}}} onClick={()=>navigate("/Settings")}>
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}

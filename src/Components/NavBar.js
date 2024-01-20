@@ -20,6 +20,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useAppStore } from './appStore';
 import { createTheme,ThemeProvider} from '@mui/material/styles';
+import { ImageList } from '@mui/material';
 // import { #0055a4 } from '@mui/material/colors';
 
 
@@ -64,6 +65,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
       width: '20ch',
     },
+  },
+}));
+
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  alignItems: 'flex-start',
+  // paddingTop: theme.spacing(1),
+  // paddingBottom: theme.spacing(2),
+  // Override media queries injected by theme.mixins.toolbar
+  '@media all': {
+    minHeight: 100,
   },
 }));
 
@@ -181,8 +192,8 @@ export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={theme}>
-      <AppBar position="fixed" color="primary" >
-        <Toolbar>
+      <AppBar position="fixed"  elevation={4} color="primary" >
+        <StyledToolbar>
           <IconButton
             size="large"
             edge="start"
@@ -191,7 +202,8 @@ export default function NavBar() {
             sx={{ mr: 2 }}
             onClick={()=>updateOpen(!dopen)}
           >
-            <MenuIcon />
+            
+            <MenuIcon/>
           </IconButton>
           <Typography
             variant="h6"
@@ -199,7 +211,9 @@ export default function NavBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            
+            <ImageList>
+
+            </ImageList>
           </Typography>
           {/* <Search>
             <SearchIconWrapper>
@@ -250,7 +264,7 @@ export default function NavBar() {
               <MoreIcon />
             </IconButton>
           </Box>
-        </Toolbar>
+        </StyledToolbar>
       </AppBar>
       </ThemeProvider>
       {renderMobileMenu}
