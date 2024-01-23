@@ -22,6 +22,9 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import GroupIcon from '@mui/icons-material/Group';
 import DriveEtaOutlinedIcon from '@mui/icons-material/DriveEtaOutlined';
 import { RiSteering2Fill } from "react-icons/ri";
+import { TbCalendarUp } from "react-icons/tb";
+// import { useState } from 'react';
+
 
 
 const drawerWidth = 210;
@@ -180,6 +183,30 @@ export default function SideBar() {
                 <ListItemText primary="Ongoing Rides" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
+
+
+            <ListItem  disablePadding sx={{ display: 'block' , "&:hover":{bgcolor:"#138CFF"} }}
+            onClick={()=>navigate("/Upcoming")}>
+              <ListItemButton
+                sx={{
+                  minHeight: 60,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <TbCalendarUp fontSize={25} color='white' height={500}/>
+                </ListItemIcon>
+                <ListItemText primary="Upcomming Ride" sx={{ opacity: open ? 1 : 0, }} />
+              </ListItemButton>
+            </ListItem>
+
 
             <ListItem disablePadding sx={{ display: 'block' , "&:hover":{bgcolor:"#138CFF"} }}
             onClick={()=>navigate("/Drivers")}>

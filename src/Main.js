@@ -8,6 +8,8 @@ import Reports from './Reports';
 import Users from './Users';
 import Vehicles from './Vehicles';
 import Drivers from './Drivers';
+import Upcoming  from './Upcoming';
+import Newrequest from './Newrequest';
 
 
 const Main = () => {
@@ -17,7 +19,9 @@ const Main = () => {
     <Routes>
       <Route exact path='/'              element={<Dashboard/>}/>
       <Route exact path='/ScheduleRaide' element={<ScheduleRaide/>}/>
+      <Route exact path='/Newrequest' element={<Newrequest/>}/>
       <Route exact path='/OngoingRaide'  element={<OngoingRaide/>}/>
+      <Route exact path='/Upcoming'       element={<Upcoming/>}/>
       <Route exact path='/Drivers'       element={<Drivers/>}/>
       <Route exact path='/Vehicles'      element={<Vehicles/>}/>
       <Route exact path='/Users'         element={<Users/>}/>

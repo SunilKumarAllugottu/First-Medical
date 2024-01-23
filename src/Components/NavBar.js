@@ -8,20 +8,21 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
+// import InputBase from '@mui/material/InputBase';
+// import SearchIcon from '@mui/icons-material/Search';
+// import MailIcon from '@mui/icons-material/Mail';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-// import SearchIcon from '@mui/icons-material/Search';
+
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useAppStore } from './appStore';
 import { createTheme,ThemeProvider} from '@mui/material/styles';
-import { ImageList } from '@mui/material';
-// import { #0055a4 } from '@mui/material/colors';
+import logo from './fmhpheaderlogo-1.png'
+import { useNavigate } from 'react-router-dom';
 
 
 const AppBar = styled(muiAppBar)
@@ -44,29 +45,29 @@ const AppBar = styled(muiAppBar)
 //   },
 // }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
+// const SearchIconWrapper = styled('div')(({ theme }) => ({
+//   padding: theme.spacing(0, 2),
+//   height: '100%',
+//   position: 'absolute',
+//   pointerEvents: 'none',
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+// }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
+// const StyledInputBase = styled(InputBase)(({ theme }) => ({
+//   color: 'inherit',
+//   '& .MuiInputBase-input': {
+//     padding: theme.spacing(1, 1, 1, 0),
+//     // vertical padding + font size from searchIcon
+//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+//     transition: theme.transitions.create('width'),
+//     width: '100%',
+//     [theme.breakpoints.up('md')]: {
+//       width: '20ch',
+//     },
+//   },
+// }));
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: 'flex-start',
@@ -144,22 +145,23 @@ export default function NavBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem>
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
+          
         >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+          <Badge badgeContent={0} color="error">
+            <NotificationsIcon  sx={{fontSize:"50px"}}/>
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -189,11 +191,18 @@ export default function NavBar() {
     },
     }
   });
+
+  const navigate = useNavigate();
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={theme}>
+      
       <AppBar position="fixed"  elevation={4} color="primary" >
         <StyledToolbar>
+       
+         <Typography sx={{marginTop:"20px"}}>
           <IconButton
             size="large"
             edge="start"
@@ -203,18 +212,20 @@ export default function NavBar() {
             onClick={()=>updateOpen(!dopen)}
           >
             
-            <MenuIcon/>
+            <MenuIcon sx={{fontSize:"40px"}}/>
           </IconButton>
+          </Typography>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { marginTop:"35px"} }}
           >
-            <ImageList>
-
-            </ImageList>
+           <img src={logo} style={{cursor:"pointer"}} alt='First Medical' onClick={()=>navigate("/")}></img>
           </Typography>
+
+
+
           {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -224,6 +235,9 @@ export default function NavBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search> */}
+
+
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -231,13 +245,14 @@ export default function NavBar() {
                 <MailIcon />
               </Badge>
             </IconButton> */}
+            <Typography sx={{marginTop:"20px"}}>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
             >
               <Badge badgeContent={0} color="error">
-                <NotificationsIcon />
+                <NotificationsIcon sx={{fontSize:"40px"}}/>
               </Badge>
             </IconButton>
             <IconButton
@@ -249,10 +264,12 @@ export default function NavBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <AccountCircle sx={{fontSize:"40px"}}/>
             </IconButton>
+          </Typography>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <Typography sx={{marginTop:"20px"}}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -263,6 +280,7 @@ export default function NavBar() {
             >
               <MoreIcon />
             </IconButton>
+            </Typography>
           </Box>
         </StyledToolbar>
       </AppBar>

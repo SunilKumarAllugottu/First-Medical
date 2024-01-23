@@ -8,15 +8,15 @@ const Settings = () => {
   return (
     <>
     <NavBar/>
-    <Box height={50}/>
-        <Box sx={{ display: 'flex' }}>
+    <div style={{marginTop:'60px'}}/>
+    <div style={{ display: 'flex' }}>
     <SideBar/>
-    <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-    <h1>Settings</h1>
-      </Box>
+    <Box component="main" sx={{ flexGrow: 1, p:10  }}>
+
+    <h1 style={{fontWeight:"900"}}>Settings </h1>
+
     </Box>
-    
-    
+    </div>
     </>
   )
 }
