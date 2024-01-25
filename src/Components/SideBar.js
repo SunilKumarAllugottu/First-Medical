@@ -117,8 +117,14 @@ export default function SideBar() {
         </DrawerHeader>
         <Divider /> */}
         <List>
-            <ListItem disablePadding sx={{ display: 'block', "&:hover":{bgcolor:"#138CFF"} }} onClick={()=>navigate("/")}>
+
+            <ListItem disablePadding sx={{ display: 'block', "&:hover":{backgroundColor:"#138CFF"},
+             backgroundColor: window.location.pathname === '/' ? "#138CFF" : "transparent"}} 
+             onClick={()=>navigate("/")}
+             >
+
               <ListItemButton
+              selected={window.location.pathname === '/'}
                 sx={{
                    minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
@@ -139,32 +145,46 @@ export default function SideBar() {
             </ListItem>
             
             
-            <ListItem disablePadding sx={{ display: 'block',"&:hover":{bgcolor:"#138CFF"} }}  onClick={()=>navigate("/ScheduleRaide")}>
-              <ListItemButton
-                sx={{
-                  fontFamily:'Montserrat',
-                  minHeight: 60,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
+            <ListItem
+               disablePadding sx={{
+                 display: 'block',
+                 "&:hover": {backgroundColor: "#138CFF",},
+                 backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
+               }}
+               onClick={() => navigate("/ScheduleRide")}
+             >
+                 <ListItemButton
+                   selected={window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest')}
+                   sx={{
+                     fontFamily: 'Montserrat',
+                     minHeight: 60,
+                     justifyContent: open ? 'initial' : 'center',
+                     px: 2.5,
+                     backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
+                   }}
+                 >
+                   <ListItemIcon
+                     sx={{
+                       minWidth: 0,
+                       mr: open ? 3 : 'auto',
+                       justifyContent: 'center',
+                     }}
+                   >
+                     <AccessTimeIcon color='primary' />
+                   </ListItemIcon>
+                   <ListItemText primary="Schedule A Ride" sx={{ opacity: open ? 1 : 0 }} />
+                 </ListItemButton>
+             </ListItem>
+
+           
+           
+           
+            <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
+              onClick={()=>navigate("/OngoingRide")}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <AccessTimeIcon color='primary'/>
-                </ListItemIcon>
-                <ListItemText primary="Schedule A Ride" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-           
-           
-           
-            <ListItem disablePadding sx={{ display: 'block',"&:hover":{bgcolor:"#138CFF"} }}  onClick={()=>navigate("/OngoingRaide")}>
+
               <ListItemButton
+              selected={window.location.pathname === '/OngoingRide'}
                 sx={{
                   minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
@@ -185,9 +205,12 @@ export default function SideBar() {
             </ListItem>
 
 
-            <ListItem  disablePadding sx={{ display: 'block' , "&:hover":{bgcolor:"#138CFF"} }}
-            onClick={()=>navigate("/Upcoming")}>
+            <ListItem  disablePadding sx={{ display: 'block' , "&:hover":{backgroundColor:"#138CFF"}, backgroundColor: window.location.pathname === '/Upcoming' ? "#138CFF" : "transparent"}}
+            onClick={()=>navigate("/Upcoming")}
+            >
+
               <ListItemButton
+              selected={window.location.pathname === '/Upcoming'}
                 sx={{
                   minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
@@ -203,14 +226,17 @@ export default function SideBar() {
                 >
                   <TbCalendarUp fontSize={25} color='white' height={500}/>
                 </ListItemIcon>
-                <ListItemText primary="Upcomming Ride" sx={{ opacity: open ? 1 : 0, }} />
+                <ListItemText primary="Upcoming Ride" sx={{ opacity: open ? 1 : 0, }} />
               </ListItemButton>
             </ListItem>
 
 
-            <ListItem disablePadding sx={{ display: 'block' , "&:hover":{bgcolor:"#138CFF"} }}
-            onClick={()=>navigate("/Drivers")}>
+            <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"},backgroundColor: window.location.pathname === '/Drivers' ? "#138CFF" : "transparent"}} 
+            onClick={()=>navigate("/Drivers")}
+            >
+
               <ListItemButton
+              selected={window.location.pathname === '/Drivers'}
                 sx={{
                   minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
@@ -230,8 +256,12 @@ export default function SideBar() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block', "&:hover":{bgcolor:"#138CFF"} }}  onClick={()=>navigate("/Vehicles")}>
+            <ListItem disablePadding sx={{ display: 'block', "&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/Vehicles' ? "#138CFF" : "transparent"}} 
+             onClick={()=>navigate("/Vehicles")}
+             >
+
               <ListItemButton
+              selected={window.location.pathname === '/Vehicles'}
                 sx={{
                   minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
@@ -251,8 +281,12 @@ export default function SideBar() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block',"&:hover":{bgcolor:"#138CFF"} }}  onClick={()=>navigate("/Users")}>
+            <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/Users' ? "#138CFF" : "transparent"}}  
+            onClick={()=>navigate("/Users")}
+            >
+
               <ListItemButton
+              selected={window.location.pathname === '/Users'}
                 sx={{
                   minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
@@ -272,8 +306,12 @@ export default function SideBar() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block', "&:hover":{bgcolor:"#138CFF"} }} onClick={()=>navigate("/Reports")}>
+            <ListItem disablePadding sx={{ display: 'block', "&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/Reports' ? "#138CFF" : "transparent"}} 
+            onClick={()=>navigate("/Reports")}
+            >
+
               <ListItemButton
+              selected={window.location.pathname === '/Reports'}
                 sx={{
                   minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',
@@ -293,8 +331,12 @@ export default function SideBar() {
               </ListItemButton>
             </ListItem>
 
-            <ListItem disablePadding sx={{ display: 'block', "&:hover":{bgcolor:"#138CFF"}}} onClick={()=>navigate("/Settings")}>
+            <ListItem disablePadding sx={{ display: 'block', "&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/Settings' ? "#138CFF" : "transparent"}} 
+            onClick={()=>navigate("/Settings")}
+            >
+
               <ListItemButton
+              selected={window.location.pathname === '/Settings'}
                 sx={{
                   minHeight: 60,
                   justifyContent: open ? 'initial' : 'center',

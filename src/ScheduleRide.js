@@ -4,7 +4,7 @@ import NavBar from './Components/NavBar';
 import { useNavigate } from 'react-router-dom';
 
 
-const ScheduleRaide = () => {
+const ScheduleRide = () => {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,7 @@ const ScheduleRaide = () => {
     <div style={{marginTop:'60px'}}/>
     <div style={{ display: 'flex' }}>
     <SideBar/>
-    <div component="main" style={{ flexGrow: 1, padding:"65px"  }}>
+    <div component="main" style={{ flexGrow: 1, padding:"65px" , }}>
     <div className='container mt-3'>
       <div className='row'>
       <div className='col-md'>
@@ -31,4 +31,4 @@ const ScheduleRaide = () => {
   )
 }
 
-export default ScheduleRaide;
+export default ScheduleRide;

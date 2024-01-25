@@ -4,7 +4,7 @@ import NavBar from './Components/NavBar';
 import { Box } from '@mui/material';
 
 
-const OngoingRaide = () => {
+const OngoingRide = () => {
   return (
     <>
     <NavBar/>
@@ -21,4 +21,4 @@ const OngoingRaide = () => {
   )
 }
 
-export default OngoingRaide;
+export default OngoingRide;
