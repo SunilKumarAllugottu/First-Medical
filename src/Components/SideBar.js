@@ -13,7 +13,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { useNavigate } from 'react-router-dom';
-import { useAppStore } from './appStore';
+import { useAppStore } from '../appStore';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SpaceDashboardRoundedIcon from '@mui/icons-material/SpaceDashboardRounded';
 import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';

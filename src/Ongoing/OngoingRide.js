@@ -1,9 +1,10 @@
 import React from 'react'
-import NavBar from './Components/NavBar'
-import SideBar from './Components/SideBar'
-import { Box } from '@mui/material'
+import SideBar from '../Components/SideBar';
+import NavBar from '../Components/NavBar';
+import { Box } from '@mui/material';
 
-const Upcomming = () => {
+
+const OngoingRide = () => {
   return (
     <>
     <NavBar/>
@@ -12,14 +13,12 @@ const Upcomming = () => {
     <SideBar/>
     <Box component="main" sx={{ flexGrow: 1, p:10  }}>
 
-    <h1 style={{fontWeight:"900"}}>Upcoming Rides </h1>
+    <h1 style={{fontWeight:"900"}}>Ongoing Raide </h1>
 
     </Box>
     </div>
     </>
-    
   )
 }
 
-export default Upcomming;
-
+export default OngoingRide;

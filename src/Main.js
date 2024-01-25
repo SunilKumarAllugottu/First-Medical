@@ -1,15 +1,15 @@
 import React from 'react'
 import Dashboard from './Dashboard';
-import ScheduleRide from './ScheduleRide'
-import OngoingRide from './OngoingRide'
+import ScheduleRide from './Schedule/ScheduleRide'
+import OngoingRide from './Ongoing/OngoingRide'
 import {BrowserRouter, Route, Routes } from 'react-router-dom';
 import Settings from './Settings';
 import Reports from './Reports';
-import Users from './Users';
-import Vehicles from './Vehicles';
-import Drivers from './Drivers';
-import Upcoming  from './Upcoming';
-import Newrequest from './Newrequest';
+import Users from './User/Users';
+import Vehicles from './Vehicles/Vehicles';
+import Drivers from '../src/Driver/Drivers';
+import Upcoming  from './Upcoming/Upcoming';
+import Newrequest from './Schedule/Newrequest';
 
 
 const Main = () => {

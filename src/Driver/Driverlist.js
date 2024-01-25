@@ -12,7 +12,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { db } from "../Data/Firebase-config";
+import { db } from "../Firebase-config";
 import {
   collection,
   getDocs,
@@ -30,8 +30,8 @@ import { CgFileDocument } from "react-icons/cg";
 import { Divider } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Adddata from './Adddata';
-import { useAppStore } from '../Components/appStore';
+import AddUser from '../User/AddUser';
+// import { useAppStore } from '../appStore';
 
 
 
@@ -61,9 +61,9 @@ export default function Driverlist() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+  
+
+ 
 
  
 
@@ -71,6 +71,18 @@ export default function Driverlist() {
     const data = await getDocs(empCollectionRef);
     setRows(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
+
+  //  useEffect(() => {
+  //   const fetchData = async () => {
+  //     await getUsers();
+  //   };
+  
+  //   fetchData();
+  // }, [getUsers]);
+useEffect(() => {
+    getUsers();
+  }, []);
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -129,7 +141,7 @@ export default function Driverlist() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         <Adddata closeEvent={handleClose}/>
+         <AddUser closeEvent={handleClose}/>
         </Box>
       </Modal>
     </div>
@@ -224,29 +236,29 @@ export default function Driverlist() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} >
+                  <TableRow key={row.id} hover role="checkbox" tabIndex={-1} >
                     
-                        <TableCell key={row.id} align="center">
+                        <TableCell  align="center">
                           {row.driver}
                         </TableCell>
 
 
-                        <TableCell key={row.id} align="center">
+                        <TableCell  align="center">
                           {row.email}
                         </TableCell>
 
 
-                        <TableCell key={row.id} align="center">
+                        <TableCell  align="center">
                           {row.contact}
                         </TableCell>
 
 
-                        <TableCell key={row.id} align="center">
+                        <TableCell  align="center">
                           {row.vehicle}
                         </TableCell>
 
 
-                        <TableCell key={row.id} align="center">
+                        <TableCell  align="center">
                           {row.documents}
                         </TableCell>
 
@@ -276,7 +288,7 @@ export default function Driverlist() {
 
 
 
-                        <TableCell key={row.id} align="center">
+                        <TableCell  align="center">
                           {row.status}
                         </TableCell>
 

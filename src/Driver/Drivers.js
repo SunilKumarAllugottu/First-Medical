@@ -1,8 +1,8 @@
 import React from 'react'
-import SideBar from './Components/SideBar';
+import SideBar from '../Components/SideBar';
 import { Box } from '@mui/material';
-import NavBar from './Components/NavBar';
-import Driverlist from './Data/Driverlist';
+import NavBar from '../Components/NavBar';
+import Driverlist from './Driverlist';
 
 
 const Drivers = () => {

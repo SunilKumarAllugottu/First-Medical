@@ -19,7 +19,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { useAppStore } from './appStore';
+import { useAppStore } from '../appStore';
 import { createTheme,ThemeProvider} from '@mui/material/styles';
 import logo from './fmhpheaderlogo-1.png'
 import { useNavigate } from 'react-router-dom';

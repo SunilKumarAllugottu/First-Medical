@@ -1,6 +1,6 @@
 import React from 'react'
-import NavBar from './Components/NavBar'
-import SideBar from './Components/SideBar'
+import NavBar from '../Components/NavBar'
+import SideBar from '../Components/SideBar'
 import { Box } from '@mui/material'
 
 const Newrequest = () => {

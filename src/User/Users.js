@@ -1,10 +1,10 @@
 import React from 'react'
-import SideBar from './Components/SideBar';
+import SideBar from '../Components/SideBar';
 import { Box } from '@mui/material';
-import NavBar from './Components/NavBar';
+import NavBar from '../Components/NavBar';
 
 
-const Vehicles = () => {
+const Users = () => {
   return (
     <>
     <NavBar/>
@@ -13,7 +13,7 @@ const Vehicles = () => {
     <SideBar/>
     <Box component="main" sx={{ flexGrow: 1, p:10  }}>
 
-    <h1 style={{fontWeight:"900"}}>Vehicles </h1>
+    <h1 style={{fontWeight:"900"}}>Users </h1>
 
     </Box>
     </div>
@@ -21,4 +21,4 @@ const Vehicles = () => {
   )
 }
 
-export default Vehicles;
+export default Users;

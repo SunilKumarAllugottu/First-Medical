@@ -4,7 +4,7 @@ import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import CloseIcon from "@mui/icons-material/Close"
 import MenuItem from '@mui/material/MenuItem';
 import { useState, useEffect } from 'react';
-import { db } from "../Data/Firebase-config";
+import { db } from "../Firebase-config";
 import {
   collection,
   getDocs,
@@ -14,10 +14,10 @@ import {
   doc,
 } from "firebase/firestore";
 import Swal from 'sweetalert2';
-import { useAppStore } from '../Components/appStore';
+import { useAppStore } from '../appStore';
 
 
-export default function Adddata ({closeEvent}) {
+export default function AddUser ({closeEvent}) {
   const [driver,setDriver]=useState("");
   const [email,setEmail]=useState("");
   const [contact,setContact]=useState("");

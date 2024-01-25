@@ -1,10 +1,10 @@
 import React from 'react'
-import SideBar from './Components/SideBar';
-import NavBar from './Components/NavBar';
+import SideBar from '../Components/SideBar';
 import { Box } from '@mui/material';
+import NavBar from '../Components/NavBar';
 
 
-const OngoingRide = () => {
+const Vehicles = () => {
   return (
     <>
     <NavBar/>
@@ -13,7 +13,7 @@ const OngoingRide = () => {
     <SideBar/>
     <Box component="main" sx={{ flexGrow: 1, p:10  }}>
 
-    <h1 style={{fontWeight:"900"}}>Ongoing Raide </h1>
+    <h1 style={{fontWeight:"900"}}>Vehicles </h1>
 
     </Box>
     </div>
@@ -21,4 +21,4 @@ const OngoingRide = () => {
   )
 }
 
-export default OngoingRide;
+export default Vehicles;
