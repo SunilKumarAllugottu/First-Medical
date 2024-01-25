@@ -4,7 +4,7 @@ import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import CloseIcon from "@mui/icons-material/Close"
 import MenuItem from '@mui/material/MenuItem';
 import { useState, useEffect } from 'react';
-import { db } from "../Data/Firebase-config";
+import { db } from "./Firebase-config";
 import {
   collection,
   getDocs,

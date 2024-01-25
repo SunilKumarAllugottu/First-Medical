@@ -12,7 +12,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { db } from "../Data/Firebase-config";
+import { db } from "./Firebase-config";
 import {
   collection,
   getDocs,
