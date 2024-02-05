@@ -30,7 +30,7 @@ import { CgFileDocument } from "react-icons/cg";
 import { Divider } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import AddUser from '../User/AddUser';
+import AddVehicle from './AddVehicle';
 import { useAppStore } from '../appStore';
 
 
@@ -49,13 +49,13 @@ import { useAppStore } from '../appStore';
   
 
 
-export default function DataSchedule() {
+export default function Vehiclelist() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   // const [rows, setRows] = useState([]);
   const setRows=useAppStore((state)=>state.setRows)
   const rows=useAppStore((state)=>state.rows)
-  const empCollectionRef = collection(db, "Schedule");
+  const empCollectionRef = collection(db, "Vehicle");
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -111,21 +111,21 @@ useEffect(() => {
 
 
   const deleteApi = async (id) => {
-    const userDoc = doc(db, "Driver", id);
+    const userDoc = doc(db,"Vehicle",id);
     await deleteDoc(userDoc);
     Swal.fire("Deleted!", "Your file has been deleted.", "success");
     getUsers();
   };
 
 
-  // const filterData = (v) => {
-  //   if (v) {
-  //     setRows([v]);
-  //   } else {
-  //     setRows([]);
-  //     getUsers();
-  //   }
-  // };
+  const filterData = (v) => {
+    if (v) {
+      setRows([v]);
+    } else {
+      setRows([]);
+      getUsers();
+    }
+  };
 
 
   
@@ -133,7 +133,7 @@ useEffect(() => {
 
   return (
 <>
-{/* <div>
+<div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -141,23 +141,23 @@ useEffect(() => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         <AddUser closeEvent={handleClose}/>
+         <AddVehicle closeEvent={handleClose}/>
         </Box>
       </Modal>
-    </div> */}
+    </div>
 
 
     <Paper sx={{ width: '100%', overflow: 'hidden' }}> 
           <Divider />
           <Box height={10} />
-          {/* <Stack direction="row" spacing={2} className="my-2 mb-2">
+          <Stack direction="row" spacing={2} className="my-2 mb-2">
             <Autocomplete
               disablePortal
               id="combo-box-demo"
               options={rows}
               sx={{ width: 300 }}
               onChange={(e, v) => filterData(v)}
-              getOptionLabel={(rows) => rows.driver || ""}
+              getOptionLabel={(rows) => rows.number || ""}
               renderInput={(params) => (
                 <TextField {...params} size="small" label="Search " />
               )}
@@ -167,10 +167,10 @@ useEffect(() => {
               component="div"
               sx={{ flexGrow: 1 }}
             ></Typography>
-            <Button variant="contained" endIcon={<AddCircleIcon />}onClick={handleOpen}>
+            <Button style={{backgroundColor:"#0054A4"}} variant="contained" endIcon={<AddCircleIcon />}onClick={handleOpen}>
               Add
             </Button>
-          </Stack> */}
+          </Stack>
           <Box height={10} />
 
 
@@ -192,7 +192,7 @@ useEffect(() => {
                   align="center"
                   style={{ minWidth: "100px",fontWeight:"900" }}
                 >
-                  Source Name
+                  Email
                 </TableCell>
 
 
@@ -200,32 +200,24 @@ useEffect(() => {
                   align="center"
                   style={{ minWidth: "100px",fontWeight:"900" }}
                 >
-                  Destination Name
+                  Contact
                 </TableCell>
 
 
-                <TableCell
+                {/* <TableCell
                   align="center"
                   style={{ minWidth: "100px",fontWeight:"900" }}
                 >
-                  Date
-                </TableCell>
+                  Vehicle
+                </TableCell> */}
 
 
-                <TableCell
+                {/* <TableCell
                   align="center"
                   style={{ minWidth: "100px",fontWeight:"900" }}
                 >
-                  Time
-                </TableCell>
-
-
-                <TableCell
-                  align="center"
-                  style={{ minWidth: "100px",fontWeight:"900" }}
-                >
-                  vehicle
-                </TableCell>
+                  Documents
+                </TableCell> */}
 
 
                 <TableCell
@@ -247,48 +239,44 @@ useEffect(() => {
                   <TableRow key={row.id} hover role="checkbox" tabIndex={-1} >
                     
                         <TableCell  align="center">
-                          {row.name}
+                          {row.number}
                         </TableCell>
 
 
                         <TableCell  align="center">
-                          {row.source}
+                          {row.model}
                         </TableCell>
 
 
                         <TableCell  align="center">
-                          {row.destination}
+                          {row.contact}
                         </TableCell>
 
 
-                        <TableCell  align="center">
-                          {row.date}
-                        </TableCell>
-
-
-                        <TableCell  align="center">
-                          {row.time}
-                        </TableCell>
-
-
-                        <TableCell  align="center">
+                        {/* <TableCell  align="center">
                           {row.vehicle}
                         </TableCell>
 
-                        <TableCell align="center">
-                          {/* <Stack spacing={2} direction="row">
+
+                        <TableCell  align="center">
+                          {row.documents}
+                        </TableCell> */}
+
+                        <TableCell align='center'>
+                          {/* <Stack spacing={2} direction="row" align="center" > */}
                             <EditIcon
                               style={{
-                                fontSize: "20px",
+                                fontSize: "25px",
                                 color: "blue",
                                 cursor: "pointer",
                               }}
                               className="cursor-pointer"
                               // onClick={() => editUser(row.id)}
                             />
+                            &emsp;&emsp;
                             <DeleteIcon
                               style={{
-                                fontSize: "20px",
+                                fontSize: "25px",
                                 color: "darkred",
                                 cursor: "pointer",
                               }}
@@ -296,20 +284,8 @@ useEffect(() => {
                                 deleteUser(row.id);
                               }}
                             />
-                          </Stack> */}
-                           <button className='btn btn' 
-                           style={{backgroundColor:"#0054A4",color:"white"}}
-                           >
-                             Assign
-                           </button>
+                          {/* </Stack> */}
                         </TableCell>
-
-
-
-                        <TableCell  align="center">
-                          {row.status}
-                        </TableCell>
-
                   </TableRow>
                 );
               })}

@@ -2,6 +2,7 @@ import React from 'react'
 import SideBar from '../Components/SideBar';
 import { Box } from '@mui/material';
 import NavBar from '../Components/NavBar';
+import Vehiclelist from './VehicleList';
 
 
 const Vehicles = () => {
@@ -14,7 +15,7 @@ const Vehicles = () => {
     <Box component="main" sx={{ flexGrow: 1, p:10  }}>
 
     <h1 style={{fontWeight:"900"}}>Vehicles </h1>
-
+         <Vehiclelist/>
     </Box>
     </div>
     </>

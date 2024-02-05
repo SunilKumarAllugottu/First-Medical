@@ -2,6 +2,8 @@ import React from 'react'
 import SideBar from '../Components/SideBar';
 import NavBar from '../Components/NavBar';
 import { useNavigate } from 'react-router-dom';
+import DataSchedule from './DataSchedule';
+import { Box } from '@mui/material';
 
 
 const ScheduleRide = () => {
@@ -24,6 +26,8 @@ const ScheduleRide = () => {
         </div>
         </div>
     </div>
+    <Box height={10}/>
+    <DataSchedule/>
     </div>
     
     </div>

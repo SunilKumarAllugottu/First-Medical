@@ -126,7 +126,7 @@ export default function SideBar() {
               <ListItemButton
               selected={window.location.pathname === '/'}
                 sx={{
-                   minHeight: 60,
+                   minHeight: 55,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -157,7 +157,7 @@ export default function SideBar() {
                    selected={window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest')}
                    sx={{
                      fontFamily: 'Montserrat',
-                     minHeight: 60,
+                     minHeight: 55,
                      justifyContent: open ? 'initial' : 'center',
                      px: 2.5,
                      backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
@@ -176,9 +176,7 @@ export default function SideBar() {
                  </ListItemButton>
              </ListItem>
 
-           
-           
-           
+
             <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
               onClick={()=>navigate("/OngoingRide")}
               >
@@ -186,7 +184,7 @@ export default function SideBar() {
               <ListItemButton
               selected={window.location.pathname === '/OngoingRide'}
                 sx={{
-                  minHeight: 60,
+                  minHeight: 55,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -205,6 +203,58 @@ export default function SideBar() {
             </ListItem>
 
 
+             {/* <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
+              onClick={()=>navigate("/OngoingRide")}
+              >
+
+              <ListItemButton
+              selected={window.location.pathname === '/OngoingRide'}
+                sx={{
+                  minHeight: 55,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <AirportShuttleIcon color='primary'/>
+                </ListItemIcon>
+                <ListItemText primary="Completed Ride" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+
+
+            <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
+              onClick={()=>navigate("/OngoingRide")}
+              >
+
+              <ListItemButton
+              selected={window.location.pathname === '/OngoingRide'}
+                sx={{
+                  minHeight: 55,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <AirportShuttleIcon color='primary'/>
+                </ListItemIcon>
+                <ListItemText primary="Cancled Rides" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem> */}
+
+
             <ListItem  disablePadding sx={{ display: 'block' , "&:hover":{backgroundColor:"#138CFF"}, backgroundColor: window.location.pathname === '/Upcoming' ? "#138CFF" : "transparent"}}
             onClick={()=>navigate("/Upcoming")}
             >
@@ -212,7 +262,7 @@ export default function SideBar() {
               <ListItemButton
               selected={window.location.pathname === '/Upcoming'}
                 sx={{
-                  minHeight: 60,
+                  minHeight: 55,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -238,7 +288,7 @@ export default function SideBar() {
               <ListItemButton
               selected={window.location.pathname === '/Drivers'}
                 sx={{
-                  minHeight: 60,
+                  minHeight: 55,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -263,7 +313,7 @@ export default function SideBar() {
               <ListItemButton
               selected={window.location.pathname === '/Vehicles'}
                 sx={{
-                  minHeight: 60,
+                  minHeight: 55,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -288,7 +338,7 @@ export default function SideBar() {
               <ListItemButton
               selected={window.location.pathname === '/Users'}
                 sx={{
-                  minHeight: 60,
+                  minHeight: 55,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -313,7 +363,7 @@ export default function SideBar() {
               <ListItemButton
               selected={window.location.pathname === '/Reports'}
                 sx={{
-                  minHeight: 60,
+                  minHeight: 55,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -338,7 +388,7 @@ export default function SideBar() {
               <ListItemButton
               selected={window.location.pathname === '/Settings'}
                 sx={{
-                  minHeight: 60,
+                  minHeight: 55,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}

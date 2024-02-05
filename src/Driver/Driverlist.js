@@ -12,7 +12,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { db } from "../Data/Firebase-config";
+import { db } from "./Firebase-config";
 import {
   collection,
   getDocs,
@@ -26,12 +26,12 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Swal from "sweetalert2";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { CgFileDocument } from "react-icons/cg";
+import { SiGoogledocs } from "react-icons/si";
 import { Divider } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import AddUser from '../User/AddUser';
-// import { useAppStore } from '../appStore';
+import AddDriver from './AddDriver';
+import { useAppStore } from '../appStore';
 
 
 
@@ -52,9 +52,9 @@ import AddUser from '../User/AddUser';
 export default function Driverlist() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [rows, setRows] = useState([]);
-  // const setRows=useAppStore((state)=>state.setRows)
-  // const rows=useAppStore((state)=>state.rows)
+  // const [rows, setRows] = useState([]);
+  const setRows=useAppStore((state)=>state.setRows)
+  const rows=useAppStore((state)=>state.rows)
   const empCollectionRef = collection(db, "Driver");
 
   const [open, setOpen] = useState(false);
@@ -69,17 +69,26 @@ export default function Driverlist() {
 
   const getUsers = async () => {
     const data = await getDocs(empCollectionRef);
-    setRows(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setRows(data.docs.map((doc) => ({ ...doc.data(), id: doc.id,isOnline:false })));
   };
 
-  //  useEffect(() => {
-  //   const fetchData = async () => {
-  //     await getUsers();
-  //   };
   
-  //   fetchData();
-  // }, [getUsers]);
-useEffect(() => {
+  // const getUsers = async () => {
+  //   try {
+  //     const data = await getDocs(empCollectionRef);
+  //     if (Array.isArray(data.docs)) {
+  //       setRows(data.docs.map((doc) => ({ ...doc.data(), id: doc.id, isOnline: false })));
+  //     } else {
+  //       console.error("Data.docs is not an array:", data.docs);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
+  
+
+  
+ useEffect(() => {
     getUsers();
   }, []);
 
@@ -117,7 +126,6 @@ useEffect(() => {
     getUsers();
   };
 
-
   const filterData = (v) => {
     if (v) {
       setRows([v]);
@@ -128,7 +136,13 @@ useEffect(() => {
   };
 
 
-  
+  const toggleStatus = (id) => {
+    setRows((prevRows) =>
+      prevRows.map((row) =>
+        row.id === id ? { ...row, isOnline: !row.isOnline } : row
+      )
+    );
+  };
 
 
   return (
@@ -141,7 +155,7 @@ useEffect(() => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         <AddUser closeEvent={handleClose}/>
+         <AddDriver closeEvent={handleClose}/>
         </Box>
       </Modal>
     </div>
@@ -167,7 +181,7 @@ useEffect(() => {
               component="div"
               sx={{ flexGrow: 1 }}
             ></Typography>
-            <Button variant="contained" endIcon={<AddCircleIcon />}onClick={handleOpen}>
+            <Button style={{backgroundColor:"#0054A4"}} variant="contained" endIcon={<AddCircleIcon />}onClick={handleOpen}>
               Add
             </Button>
           </Stack>
@@ -228,6 +242,14 @@ useEffect(() => {
                 </TableCell>
 
 
+                <TableCell
+                  align="center"
+                  style={{ minWidth: "100px",fontWeight:"900" }}
+                >
+                  Action
+                </TableCell>
+
+
                 
             </TableRow>
           </TableHead>
@@ -259,23 +281,38 @@ useEffect(() => {
 
 
                         <TableCell  align="center">
-                          {row.documents}
+                          {/* {row.documents} */}
+                          <SiGoogledocs style={{
+                            cursor:"pointer",
+                            fontSize:"30px",
+                            Color:"white"
+                          }} onClick={handleOpen}/>
                         </TableCell>
 
-                        <TableCell align="left">
-                          <Stack spacing={2} direction="row">
+                        <TableCell align="center">
+                {/* <button
+                  className={`btn ${row.isOnline ? 'btn-success' : 'btn-danger'}`}
+                  onClick={() => toggleStatus(row.id)}
+                >
+                  {row.isOnline ? 'Online' : 'Offline'}
+                </button> */}
+              </TableCell>
+
+              <TableCell align="center">
+                          {/* <Stack spacing={2} direction="row"> */}
                             <EditIcon
                               style={{
-                                fontSize: "20px",
+                                fontSize: "25px",
                                 color: "blue",
                                 cursor: "pointer",
                               }}
                               className="cursor-pointer"
                               // onClick={() => editUser(row.id)}
                             />
+                            &emsp;&emsp;
                             <DeleteIcon
                               style={{
-                                fontSize: "20px",
+                                fontSize: "25px",
                                 color: "darkred",
                                 cursor: "pointer",
                               }}
@@ -283,13 +320,7 @@ useEffect(() => {
                                 deleteUser(row.id);
                               }}
                             />
-                          </Stack>
-                        </TableCell>
-
-
-
-                        <TableCell  align="center">
-                          {row.status}
+                          {/* </Stack> */}
                         </TableCell>
 
                   </TableRow>

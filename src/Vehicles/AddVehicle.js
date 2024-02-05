@@ -2,34 +2,34 @@ import React from 'react'
 import TextField from '@mui/material/TextField';
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import CloseIcon from "@mui/icons-material/Close"
-import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 import { useState, useEffect } from 'react';
-import { db } from "./Firebase-config";
+import { db } from "../Driver/Firebase-config";
 import {
   collection,
   getDocs,
   addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
+  // updateDoc,
+  // deleteDoc,
+  // doc,
 } from "firebase/firestore";
 import Swal from 'sweetalert2';
-import { useAppStore } from '../Components/appStore';
+import { useAppStore } from '../appStore';
 
 
-export default function Adddata ({closeEvent}) {
-  const [driver,setDriver]=useState("");
+export default function AddUser ({closeEvent}) {
+  const [name,setName]=useState("");
   const [email,setEmail]=useState("");
   const [contact,setContact]=useState("");
   const [vehicle,setVehicle]=useState("");
   const [documents,setDocuments]=useState("");
   // const [rows, setRows] = useState([]);
   const setRows=useAppStore((state)=>state.setRows)
-  const empCollectionRef = collection(db, "Driver");
+  const empCollectionRef = collection(db, "Vehicle");
 
 
-const handleDriverChange = (event) =>{
-  setDriver(event.target.value);
+const handleNameChange = (event) =>{
+  setName(event.target.value);
 };
 const handleEmailChange = (event) =>{
   setEmail(event.target.value);
@@ -48,7 +48,7 @@ const handleDocumentsChange = (event) =>{
 
   const createUser = async()=>{
     await addDoc(empCollectionRef,{
-        driver:driver,
+        name:name,
         email:email,
         contact:contact,
         vehicle:vehicle,
@@ -75,9 +75,9 @@ const handleDocumentsChange = (event) =>{
   return (
   <>
   <Box sx={{m:2}}/>
-       <Typography variant='h5' align='center' sx={{fontWeight:"900"}}>
-         Add Driver
-       </Typography>
+       {/* <Typography variant='h5' align='center' sx={{fontWeight:"900",fontSize:"500xp"}}>
+         Add Vehicle
+       </Typography> */}
        <IconButton 
               style={{ position:"absolute", top:"0", right:"0"}}
               onClick={closeEvent}>
@@ -89,11 +89,11 @@ const handleDocumentsChange = (event) =>{
 
        <Grid item xs={12}>
                <TextField id="outlined-basic" 
-                          label="Driver Name" 
+                          label="User Name" 
                           variant="outlined" 
                           size='small' 
-                          value={driver}
-                          onChange={handleDriverChange}
+                          value={name}
+                          onChange={handleNameChange}
                           sx={{minWidth:"100%"}}
                           />
        </Grid>
@@ -111,7 +111,7 @@ const handleDocumentsChange = (event) =>{
        </Grid>
 
 
-       <Grid item xs={6}>
+       <Grid item xs={12}>
                <TextField id="outlined-basic" 
                           label="Contact" 
                           variant="outlined" 
@@ -123,7 +123,7 @@ const handleDocumentsChange = (event) =>{
        </Grid>
 
 
-       <Grid item xs={6}>
+       {/* <Grid item xs={6}>
                <TextField id="outlined-basic" 
                           label="Vehicle" 
                           variant="outlined" 
@@ -139,10 +139,10 @@ const handleDocumentsChange = (event) =>{
                      </MenuItem>
                    ))}
                 </TextField>
-       </Grid>
+       </Grid> */}
 
 
-       <Grid item xs={12}>
+       {/* <Grid item xs={12}>
                <TextField id="outlined-basic" 
                           label="Documents" 
                           variant="outlined" 
@@ -151,7 +151,7 @@ const handleDocumentsChange = (event) =>{
                           onChange={handleDocumentsChange}
                           sx={{minWidth:"100%"}}
                           />
-       </Grid>
+       </Grid> */}
 
 
        {/* <Grid item xs={12}>
@@ -161,7 +161,7 @@ const handleDocumentsChange = (event) =>{
 
        <Grid item xs={12}>
           <Typography variant='h5' align="center">
-            <Button variant='contained' onClick={createUser}>
+            <Button  style={{backgroundColor:"#0054A4"}} variant='contained' onClick={createUser}>
               Submit
             </Button>
           </Typography>
@@ -173,4 +173,6 @@ const handleDocumentsChange = (event) =>{
   </>
   )
 }
+
+
 
