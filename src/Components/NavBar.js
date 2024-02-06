@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { useState } from 'react';
 import { styled, 
   // alpha 
 } from '@mui/material/styles';
@@ -23,6 +23,12 @@ import { useAppStore } from '../appStore';
 import { createTheme,ThemeProvider} from '@mui/material/styles';
 import logo from './fmhpheaderlogo-1.png'
 import { useNavigate } from 'react-router-dom';
+// import Modal from '@mui/material/Modal';
+// import Logout from './LogOut';
+import Swal from 'sweetalert2';
+
+
+
 
 
 const AppBar = styled(muiAppBar)
@@ -80,8 +86,34 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function NavBar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+const handleLogout = () => {
+    // Display a confirmation dialog
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will be logged out.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, logout'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Clear the login data from local storage
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userId');
+        // Update login status in state
+        setIsLoggedIn(false);
+        // Navigate to the login page
+        window.location.href = '/';
+      }
+    });
+  };
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const updateOpen = useAppStore((state) => state.updateOpen);
   const dopen = useAppStore((state) => state.dopen);
 
@@ -124,7 +156,7 @@ export default function NavBar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleLogout}>LogOut</MenuItem>
     </Menu>
   );
 
@@ -196,6 +228,7 @@ export default function NavBar() {
 
 
   return (
+  <>
     <Box sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={theme}>
       
@@ -221,7 +254,7 @@ export default function NavBar() {
             component="div"
             sx={{ display: { marginTop:"35px"} }}
           >
-           <img src={logo} style={{cursor:"pointer"}} alt='First Medical' onClick={()=>navigate("/")}></img>
+           <img src={logo} style={{cursor:"pointer"}} alt='First Medical' onClick={()=>navigate("/Dashboard")}></img>
           </Typography>
 
 
@@ -288,5 +321,6 @@ export default function NavBar() {
       {renderMobileMenu}
       {renderMenu}
     </Box>
+    </>
   );
 }

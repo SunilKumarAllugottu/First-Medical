@@ -119,8 +119,8 @@ export default function SideBar() {
         <List>
 
             <ListItem disablePadding sx={{ display: 'block', "&:hover":{backgroundColor:"#138CFF"},
-             backgroundColor: window.location.pathname === '/' ? "#138CFF" : "transparent"}} 
-             onClick={()=>navigate("/")}
+             backgroundColor: window.location.pathname === '/'|| window.location.pathname.startsWith('/Dashboard') ? "#138CFF" : "transparent"}} 
+             onClick={()=>navigate("/Dashboard")}
              >
 
               <ListItemButton
