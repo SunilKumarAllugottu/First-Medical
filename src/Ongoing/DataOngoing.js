@@ -90,12 +90,7 @@ useEffect(() => {
     return (
    <>
     <Paper sx={{ width: '100%', overflow: 'hidden' }}> 
-          <Divider />
-          <Box height={10} />
-          
-          <Box height={10} />
-
-
+    
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>

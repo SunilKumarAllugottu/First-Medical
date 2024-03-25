@@ -1,0 +1,22 @@
+.login {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 3%;
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 426px) {
+  .login {
+      padding: 3%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .responsive-image{
+    height: 100vh;
+    width: 100vw;
+  }
+}

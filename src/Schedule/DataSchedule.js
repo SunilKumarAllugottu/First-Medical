@@ -60,11 +60,6 @@ export default function DataSchedule() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  
-
- 
-
  
 
   const getUsers = async () => {
@@ -146,10 +141,10 @@ useEffect(() => {
       </Modal>
     </div> */}
 
-
+<div style={{padding:"20px",paddingLeft:"40px"}}>
     <Paper sx={{ width: '100%', overflow: 'hidden' }}> 
           <Divider />
-          <Box height={10} />
+          {/* <Box height={10} /> */}
           {/* <Stack direction="row" spacing={2} className="my-2 mb-2">
             <Autocomplete
               disablePortal
@@ -326,6 +321,7 @@ useEffect(() => {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
+    </div>
     </>
   );
 }

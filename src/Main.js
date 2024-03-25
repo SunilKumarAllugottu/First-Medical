@@ -12,7 +12,7 @@ import Upcoming  from './Upcoming/Upcoming';
 import Newrequest from './Schedule/Newrequest';
 import Login from './Components/Login';
 import { useState, useEffect } from 'react';
-import Logout from './Components/LogOut';
+import MiniDrawer from './Components/MiniDrawer';
 
 
 const Main = () => {
@@ -28,10 +28,7 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
   }, []);
 
   const handleLogin = () => {
-    // Perform authentication (e.g., send login request to server)
-    // Upon successful authentication, set isLoggedIn to true
     setIsLoggedIn(true);
-    // Store login status in local storage
     localStorage.setItem('isLoggedIn', 'true');
   };
 
@@ -40,7 +37,6 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
     <>
      <BrowserRouter>
     <Routes>
-           
     <Route
           exact
           path="/"
@@ -49,12 +45,6 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
       <Route  exact path="/Dashboard"
         element={isLoggedIn ? <Dashboard/> : <Navigate to="/" />}/>
 
-
-
-
-      {/* <Route exact path='/'              element={<Login/>}/> */}
-      {/* // <Route exact path='/Dashboard'              element={<Dashboard/>}/> */}
-      <Route exact path='/LogOut' element={<Logout/>}/>
       <Route exact path='/ScheduleRide' element={<ScheduleRide/>}/>
       <Route exact path='/Newrequest' element={<Newrequest/>}/>
       <Route exact path='/OngoingRide'  element={<OngoingRide/>}/>

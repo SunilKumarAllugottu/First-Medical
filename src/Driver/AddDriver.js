@@ -154,18 +154,12 @@ const handleDocumentsChange = (event) =>{
        </Grid>
 
 
-       {/* <Grid item xs={12}>
-               <TextField id="outlined-basic" label="Status" variant="outlined" size='small' sx={{minWidth:"100%"}}/>
-       </Grid> */}
-
-
        <Grid item xs={12}>
           <Typography variant='h5' align="center">
             <Button  style={{backgroundColor:"#0054A4"}} variant='contained' onClick={createUser}>
               Submit
             </Button>
           </Typography>
-
        </Grid>
 
        </Grid>

@@ -1,27 +1,27 @@
 import React from 'react'
-import SideBar from '../Components/SideBar';
-import { Box } from '@mui/material';
-import NavBar from '../Components/NavBar';
+import { Box, Toolbar } from '@mui/material';
 import Driverlist from './Driverlist';
+import MiniDrawer from '../Components/MiniDrawer';
 
 
 const Drivers = () => {
   return (
     
-    <>
-    <div >
-    <NavBar/>
-    <div style={{marginTop:'60px'}}/>
-    <div style={{ display: 'flex' }}>
-    <SideBar/>
-    <Box component="main" sx={{ flexGrow: 1, p:10  }}>
-
-    <h1 style={{fontWeight:"900"}}>Drivers </h1>
-
-     <Driverlist/>
-    </Box>
+  <>
+    
+    <MiniDrawer/>
+    <div component="main" >
+    <div className='container mt-3'>
+    <div className='row'>
+        <div className='col-md'>
+          <h1 style={{fontWeight:"900"}}>Drivers</h1>
+        </div>
+        <Toolbar/>
+        <div ><Driverlist/></div>
     </div>
     </div>
-    </>
+    </div>
+    <Toolbar/>
+  </>
   )}
 export default Drivers;

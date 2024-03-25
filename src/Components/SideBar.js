@@ -1,13 +1,10 @@
-import * as React from 'react';
+import React,{useState} from 'react';
 import { styled, createTheme, ThemeProvider} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-// import IconButton from '@mui/material/IconButton';
-// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-// import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -23,7 +20,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import DriveEtaOutlinedIcon from '@mui/icons-material/DriveEtaOutlined';
 import { RiSteering2Fill } from "react-icons/ri";
 import { TbCalendarUp } from "react-icons/tb";
-// import { useState } from 'react';
+import Toolbar from '@mui/material/Toolbar';
 
 
 
@@ -50,16 +47,6 @@ const closedMixin = (theme) => ({
   },
 });
 
-// const DrawerHeader = styled('div')(({ theme }) => ({
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'flex-end',
-//   padding: theme.spacing(0, 1),
-//   // necessary for content to be below app bar
-//   ...theme.mixins.toolbar,
-// }));
-
-
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -79,7 +66,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function SideBar() {
-  const theme = createTheme({
+  const them = createTheme({
     palette:{
       primary:{
         main:'#FFFFFF'
@@ -89,18 +76,15 @@ export default function SideBar() {
       fontSize:15,
     }
   });
-
-  // const [open, setOpen] = React.useState(true);
+  
   const navigate = useNavigate();
   const open = useAppStore((state) => state.dopen);
 
 
-
-  
   return (
-    <Box sx={{ display: 'flex' }} >
+    <Box  >
       <CssBaseline />
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={them}>
       <Drawer  PaperProps={{
               sx: {
                 backgroundColor: "#0054A4",
@@ -108,21 +92,15 @@ export default function SideBar() {
               }
             }}
             variant="permanent" open={open} >
-      <Box height={95}/>
 
-        {/* <DrawerHeader>
-          <IconButton >
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider /> */}
         <List>
+        {/* <Toolbar /> */}
+        {/* <Toolbar /> */}
 
             <ListItem disablePadding sx={{ display: 'block', "&:hover":{backgroundColor:"#138CFF"},
              backgroundColor: window.location.pathname === '/'|| window.location.pathname.startsWith('/Dashboard') ? "#138CFF" : "transparent"}} 
              onClick={()=>navigate("/Dashboard")}
              >
-
               <ListItemButton
               selected={window.location.pathname === '/'}
                 sx={{
@@ -151,7 +129,9 @@ export default function SideBar() {
                  "&:hover": {backgroundColor: "#138CFF",},
                  backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
                }}
-               onClick={() => navigate("/ScheduleRide")}
+               onClick={() => {
+                navigate("/ScheduleRide");
+            }}
              >
                  <ListItemButton
                    selected={window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest')}
@@ -201,58 +181,6 @@ export default function SideBar() {
                 <ListItemText primary="Ongoing Rides" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
-
-
-             {/* <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
-              onClick={()=>navigate("/OngoingRide")}
-              >
-
-              <ListItemButton
-              selected={window.location.pathname === '/OngoingRide'}
-                sx={{
-                  minHeight: 55,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <AirportShuttleIcon color='primary'/>
-                </ListItemIcon>
-                <ListItemText primary="Completed Ride" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-
-
-            <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
-              onClick={()=>navigate("/OngoingRide")}
-              >
-
-              <ListItemButton
-              selected={window.location.pathname === '/OngoingRide'}
-                sx={{
-                  minHeight: 55,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <AirportShuttleIcon color='primary'/>
-                </ListItemIcon>
-                <ListItemText primary="Cancled Rides" sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem> */}
 
 
             <ListItem  disablePadding sx={{ display: 'block' , "&:hover":{backgroundColor:"#138CFF"}, backgroundColor: window.location.pathname === '/Upcoming' ? "#138CFF" : "transparent"}}

@@ -1,193 +1,125 @@
 import React from 'react'
-import SideBar from './Components/SideBar';
-import { Box } from '@mui/material';
-import NavBar from './Components/NavBar';
+import "./Dashboard.css"
+import { Box, Toolbar } from '@mui/material';
 import { Card } from 'react-bootstrap';
 import CountUp from 'react-countup';
+import MapContainer from './MapContainer';
+import MiniDrawer from './Components/MiniDrawer';
 
 
 const Dashboard = () => {
   return (
+
     <>
-    <NavBar/>
-    <div style={{marginTop:'60px'}}/>
-        <div style={{ display: 'flex' }}>
-    <SideBar/>
-
-
-      <Box component="main" sx={{ flexGrow: 1, p:10  }}>
-        <h1 style={{fontWeight:"900"}}>Dashboard <span style={{color:'#888888'}}>Admin panel</span></h1>
-      <Box height={25}/>
-    <div className="container mt-3 ">
+    <MiniDrawer/>
+      <div component="main"  >
+      <div className='container mt-3'>
       <div className='row'>
-        <div className="col-md ">
-      <Card style={{maxWidth:"300px", maxHeight:"125px",backgroundColor:"#00CCBB"}}>
-      <div classNameName="card text-white bg-primary mb-3" style={{ minWidth:"10px"}}>  
-         <div  style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>  
-
-           <p style={{color:"black",borderRadius:"10px", display:"flex",
-                      flexDirection:"column",justifyContent:"center",
-                      alignItems:"center", minWidth:"225px", fontSize:"14px",fontWeight:"999",
-                      padding:"3px",backgroundColor:"#ffffff",marginTop:"10px",
-                      }}>
-                        ONGOING RIDES
-           </p>
-         
-         </div>
-           <div className="card-body">
-             <h5 className="card-title" 
-                 style={{fontSize:"36px",fontWeight:"600",color:"white",
-                 display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"
-                 }}
-                 >
-                 <CountUp duration={0.9} delay={0.2} end={15}/> </h5>
-           </div>
+      <div className='col-md'>
+        <h1 style={{fontWeight:"900"}}>Dashboard <span style={{color:'#888888'}}>Admin panel</span></h1>
       </div>
+      <Box height={25}/>
+
+
+    <div className="container-fluid mt-3 " style={{marginLeft:"2%"}}> 
+      <div className='row'>
+        <div className="col">
+      <Card className='wide' style={{backgroundColor:"#00CCBB"}}>
+          <div className='center'>  
+
+            <p className='head'>
+                        ONGOING RIDES
+            </p>
+          
+          </div>
+              <h5 className="caerd-title  title" >
+                  <CountUp duration={0.9} delay={0.2} end={15}/> </h5>
       </Card>
       </div>
       <br/><br/><br/><br/><br/><br/>
         
 
-      <div className="col-md ">
-      <Card style={{maxWidth:"300px", maxHeight:"125px",backgroundColor:"#0054A4"}}>
-      <div classNameName="card text-white bg-primary mb-3" style={{ minWidth:"10px"}}>  
-         <div  style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+      <div className="col">
+      <Card className='wide' style={{backgroundColor:"#0054A4"}}>
+          <div  className='center'>
 
-          <p style={{color:"BLACK",borderRadius:"10px", display:"flex",
-                      flexDirection:"column",justifyContent:"center",
-                      alignItems:"center", minWidth:"225px", fontSize:"14px",fontWeight:"999",
-                      padding:"3px",backgroundColor:"#FFFFFF",marginTop:"10px",
-                    }}>
-                   RIDE REQUESTS
+          <p className='head'>
+                    RIDE REQUESTS
           </p>
           </div>
-           <div className="card-body">
-             <h5 className="card-title" 
-             style={{fontSize:"36px",fontWeight:"600",color:"white",
-             display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"
-             }}
-              >
+              <h5 className="caerd-title  title" >
               <CountUp duration={0.9} delay={0.2} end={15}/></h5>
-             {/* <p className="card-text">.</p> */}
-           </div>
-      </div>
       </Card>
       </div>
-      <br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/>
 
 
-      <div className="col-md ">
-      <Card style={{maxWidth:"300px", maxHeight:"125px",backgroundColor:"#07AC2E"}}>
-      <div classNameName="card text-white bg-primary mb-3" style={{ minWidth:"10px"}}>  
-         <div  style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+      <div className="col">
+      <Card className='wide' style={{backgroundColor:"#07AC2E"}}>
+          <div  className='center'>
 
-          <p style={{color:"BLACK",borderRadius:"10px", display:"flex",
-                      flexDirection:"column",justifyContent:"center",
-                      alignItems:"center", minWidth:"225px", fontSize:"14px",fontWeight:"999",
-                      padding:"3px",backgroundColor:"#FFFFFF",marginTop:"10px",
-                      }}>
-                       NO.OF DRIVERS
+          <p className='head'>
+                        NO.OF DRIVERS
           </p>
         </div>
-           <div className="card-body">
-             <h5 className="card-title" 
-                 style={{fontSize:"36px",fontWeight:"600",color:"white",
-                 display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"
-                 }}
-                 >
-                 <CountUp duration={0.9} delay={0.2} end={15}/></h5>
-           </div>
-      </div>
+              <h5 className="caerd-title  title" >
+                  <CountUp duration={0.9} delay={0.2} end={15}/></h5>
       </Card>
       </div>
-      <br/><br/><br/><br/>
-      <div className="col-md ">
-      <Card style={{maxWidth:"300px", maxHeight:"125px",backgroundColor:"#B7780A"}}>
-      <div classNameName="card text-white bg-primary mb-3" style={{ minWidth:"10px"}}>  
-         <div  style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-            <p style={{color:"BLACK",borderRadius:"10px", display:"flex",
-                      flexDirection:"column",justifyContent:"center",
-                      alignItems:"center", minWidth:"200px", fontSize:"14px",fontWeight:"999",
-                      padding:"3px",backgroundColor:"#FFFFFF",marginTop:"10px",
-                       }}>
+      <br/><br/><br/><br/><br/><br/>
+      
+
+      <div className="col">
+      <Card className='wide' style={{backgroundColor:"#B7780A"}}>
+          <div className='center'>
+            <p className='head'>
                         DRIVERS ONLINE
             </p>
-         </div>
-           <div className="card-body">
-             <h5 className="card-title" 
-                 style={{fontSize:"36px",fontWeight:"600",color:"white",
-                         display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"
-                        }}
-                        >
-                        <CountUp duration={0.9} delay={0.2} end={15}/></h5>
-           </div>
-      </div>
+          </div>
+              <h5 className="caerd-title  title" >
+                        <CountUp duration={0.9} delay={0.2} end={15}/>
+              </h5>
       </Card>
       </div>
-      <br/><br/><br/><br/>
-      </div>
-      </div>
+      <br/><br/><br/><br/><br/><br/>
 
-      <div className='container mt-3'>
-      <div className='row'>
-      
 
-      
-      <div className="col-sm-3 ">
-      <Card style={{maxWidth:"300px", maxHeight:"125px",backgroundColor:"#A10C3E"}}>
-      <div classNameName="card text-white bg-primary mb-3" style={{ minWidth:"10px"}}>  
-         <div  style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>          
-         
-         <p style={{color:"BLACK",borderRadius:"10px", display:"flex",
-                      flexDirection:"column",justifyContent:"center",
-                      alignItems:"center", minWidth:"200px", fontSize:"14px",fontWeight:"999",
-                      padding:"3px",backgroundColor:"#FFFFFF",marginTop:"10px",
-                    }}>
-                       NO.OF RIDERS
-          </p>
-</div>
-           <div className="card-body">
-             <h5 className="card-title" 
-                 style={{fontSize:"36px",fontWeight:"600",color:"white",
-                 display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"
-            }}
-            >
-              <CountUp duration={0.9} delay={0.2} end={15}/></h5>
-           </div>
-      </div>
+      <div className="col">
+      <Card className="wide" style={{backgroundColor:"#A10C3E"}}>
+          <div className='center'>          
+            <p className='head'>
+                        NO.OF RIDERS
+            </p>
+          </div>
+              <h5 className="caerd-title  title"> 
+              <CountUp duration={0.9} delay={0.2} end={15}/>
+              </h5>
       </Card>
       </div>
-      <br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/>
 
 
-      <div className="col-sm-3 ">
-      <Card style={{maxWidth:"300px", maxHeight:"125px",backgroundColor:"#5A0D9C"}}>
-      <div classNameName="card text-white bg-primary mb-3" style={{ minWidth:"10px"}}>  
-         <div  style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>         
-          <p style={{color:"BLACK",borderRadius:"10px", display:"flex",
-                      flexDirection:"column",justifyContent:"center",
-                      alignItems:"center", minWidth:"200px", fontSize:"14px",fontWeight:"999",
-                      padding:"3px",backgroundColor:"#FFFFFF",marginTop:"10px",
-                    }}>
+      <div className="col">
+      <Card className="wide" style={{backgroundColor:"#5A0D9C"}}>
+         <div  className='center'>         
+          <p className='head'>
                        NO.OF USERS
           </p>
 </div>
-           <div className="card-body">
-             <h5 className="card-title" 
-                 style={{fontSize:"36px",fontWeight:"600",color:"white",
-                         display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"
-                        }}
-            >
-            <CountUp duration={0.9} delay={0.2} end={15}/></h5>
-           </div>
-      </div>
+             <h5 className="caerd-title  title">
+            <CountUp duration={0.9} delay={0.2} end={15}/>
+            </h5>
       </Card>
       </div>
-      <br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/>
 
     </div>
     </div>
-      </Box>
+    <Box height={10}/>
+    <MapContainer/>
+    <Toolbar/>
+      </div>
+    </div>
     </div>
 
     </>

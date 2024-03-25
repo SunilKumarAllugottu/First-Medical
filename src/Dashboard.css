@@ -1,0 +1,44 @@
+.wide {
+    max-width: 205px;
+    min-width: 205px;
+    max-height: 115px;
+}
+
+.head {
+    color: black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 180px;
+    font-size: 14px;
+    font-weight: 999;
+    padding: 3px;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+     font-size:32px;
+     font-weight:600;
+     color:white;
+     display:flex;
+     justify-content:center;
+}
+
+
+
+
+
+
+/* @media screen and (max) {
+    
+} */
