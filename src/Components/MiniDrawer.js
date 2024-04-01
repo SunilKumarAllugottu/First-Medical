@@ -407,40 +407,40 @@ export default function MiniDrawer() {
 
 
             <ListItem
-               disablePadding sx={{
-                 display: 'block',
-                 "&:hover": {backgroundColor: "#138CFF",},
-                 backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
-               }}
-               onClick={() => {
+                disablePadding sx={{
+                  display: 'block',
+                  "&:hover": {backgroundColor: "#138CFF",},
+                  backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
+                }}
+                onClick={() => {
                 navigate("/ScheduleRide");
             }}
-             >
-                 <ListItemButton
-                   selected={window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest')}
-                   sx={{
-                     fontFamily: 'Montserrat',
-                     minHeight: 55,
-                     justifyContent: open ? 'initial' : 'center',
-                     px: 2.5,
-                     backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
-                   }}
-                 >
-                   <ListItemIcon
-                     sx={{
-                       minWidth: 0,
-                       mr: open ? 3 : 'auto',
-                       justifyContent: 'center',
-                     }}
-                   >
-                     <AccessTimeIcon color='primary' />
-                   </ListItemIcon>
-                   <ListItemText primary="Schedule A Ride" sx={{ opacity: open ? 1 : 0 }} />
-                 </ListItemButton>
-             </ListItem>
+              >
+                  <ListItemButton
+                    selected={window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest')}
+                    sx={{
+                      fontFamily: 'Montserrat',
+                      minHeight: 55,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                      backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <AccessTimeIcon color='primary' />
+                    </ListItemIcon>
+                    <ListItemText primary="Schedule A Ride" sx={{ opacity: open ? 1 : 0 }} />
+                  </ListItemButton>
+              </ListItem> 
 
 
-             <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
+              <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
               onClick={()=>navigate("/OngoingRide")}
               >
 
@@ -518,8 +518,8 @@ export default function MiniDrawer() {
             </ListItem>
 
             <ListItem disablePadding sx={{ display: 'block', "&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/Vehicles' ? "#138CFF" : "transparent"}} 
-             onClick={()=>navigate("/Vehicles")}
-             >
+              onClick={()=>navigate("/Vehicles")}
+            >
 
               <ListItemButton
               selected={window.location.pathname === '/Vehicles'}
