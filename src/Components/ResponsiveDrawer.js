@@ -118,9 +118,9 @@ const navigate = useNavigate();
 
       <List>
       <ListItem disablePadding sx={{ display: 'block', "&:hover":{backgroundColor:"#138CFF"},
-             backgroundColor: window.location.pathname === '/'|| window.location.pathname.startsWith('/Dashboard') ? "#138CFF" : "transparent"}} 
-             onClick={()=>navigate("/Dashboard")}
-             >
+              backgroundColor: window.location.pathname === '/'|| window.location.pathname.startsWith('/Dashboard') ? "#138CFF" : "transparent"}} 
+              onClick={()=>navigate("/Dashboard")}
+              >
 
               <ListItemButton
               selected={window.location.pathname === '/'}
@@ -143,38 +143,38 @@ const navigate = useNavigate();
 
 
             <ListItem
-               disablePadding sx={{
-                 display: 'block',
-                 "&:hover": {backgroundColor: "#138CFF",},
-                 backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
-               }}
-               onClick={() => {
+                disablePadding sx={{
+                  display: 'block',
+                  "&:hover": {backgroundColor: "#138CFF",},
+                  backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
+                }}
+                onClick={() => {
                 navigate("/ScheduleRide");
             }}
-             >
-                 <ListItemButton
-                   selected={window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest')}
-                   sx={{
-                     fontFamily: 'Montserrat',
-                     minHeight: 55,
-                     px: .5,
-                     backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
-                   }}
-                 >
-                   <ListItemIcon
-                     sx={{
+              >
+                  <ListItemButton
+                    selected={window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest')}
+                    sx={{
+                      fontFamily: 'Montserrat',
+                      minHeight: 55,
+                      px: .5,
+                      backgroundColor: window.location.pathname === '/ScheduleRide' || window.location.pathname.startsWith('/Newrequest') ? "#138CFF" : "transparent",
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
                       
-                       
-                     }}
-                   >
-                     <AccessTimeIcon color='primary' />
-                   </ListItemIcon>
-                   <ListItemText primary="Schedule A Ride"  />
-                 </ListItemButton>
-             </ListItem>
+                        
+                      }}
+                    >
+                      <AccessTimeIcon color='primary' />
+                    </ListItemIcon>
+                    <ListItemText primary="Schedule A Ride"  />
+                  </ListItemButton>
+              </ListItem>
 
 
-             <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
+              <ListItem disablePadding sx={{ display: 'block',"&:hover":{backgroundColor:"#138CFF"} , backgroundColor: window.location.pathname === '/OngoingRide' ? "#138CFF" : "transparent" }}
               onClick={()=>navigate("/OngoingRide")}
               >
 
@@ -327,7 +327,7 @@ const navigate = useNavigate();
               >
                 <ListItemIcon
                   sx={{
-                   
+                    
                     
                   }}
                 >
@@ -340,7 +340,7 @@ const navigate = useNavigate();
         </Drawer>
         </ThemeProvider>
       </Box>
-     
+      
     </Box>
   );
 }

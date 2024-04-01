@@ -10,8 +10,6 @@ import TableRow from '@mui/material/TableRow';
 import { useState, useEffect } from 'react';
 import Box from "@mui/material/Box";
 import { db } from './Driver/Firebase-config';
-import SideBar from './Components/SideBar';
-import NavBar from './Components/NavBar';
 import Stack from '@mui/material/Stack';
 
 import {

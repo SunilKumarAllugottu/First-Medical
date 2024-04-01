@@ -141,7 +141,7 @@ useEffect(() => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         <AddVehicle closeEvent={handleClose}/>
+        <AddVehicle closeEvent={handleClose}/>
         </Box>
       </Modal>
     </div>
@@ -263,10 +263,10 @@ useEffect(() => {
                           {row.documents}
                         </TableCell> */}
 
-                        <TableCell align='center'>
-                          {/* <Stack spacing={2} direction="row" align="center" > */}
+                        <TableCell >
+                          <Stack spacing={2} direction="row" alignItems="center" justifyContent="center">
                             <EditIcon
-                              style={{
+                              style={{ spacing:"2",
                                 fontSize: "25px",
                                 color: "blue",
                                 cursor: "pointer",
@@ -274,9 +274,10 @@ useEffect(() => {
                               className="cursor-pointer"
                               // onClick={() => editUser(row.id)}
                             />
-                            &emsp;&emsp;
+                            
                             <DeleteIcon
                               style={{
+                                spacing:"2",
                                 fontSize: "25px",
                                 color: "darkred",
                                 cursor: "pointer",
@@ -285,7 +286,7 @@ useEffect(() => {
                                 deleteUser(row.id);
                               }}
                             />
-                          {/* </Stack> */}
+                          </Stack>
                         </TableCell>
                   </TableRow>
                 );

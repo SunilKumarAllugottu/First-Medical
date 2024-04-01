@@ -64,9 +64,7 @@ export default function Driverlist() {
 
   
 
- 
 
- 
 
   const getUsers = async () => {
     const data = await getDocs(empCollectionRef);
@@ -300,7 +298,7 @@ export default function Driverlist() {
               </TableCell>
 
               <TableCell align="center">
-                          {/* <Stack spacing={2} direction="row"> */}
+                          <Stack spacing={2} direction="row" alignItems="center" justifyContent="center">
                             <EditIcon
                               style={{
                                 fontSize: "25px",
@@ -310,7 +308,7 @@ export default function Driverlist() {
                               className="cursor-pointer"
                               // onClick={() => editUser(row.id)}
                             />
-                            &emsp;&emsp;
+                        
                             <DeleteIcon
                               style={{
                                 fontSize: "25px",
@@ -321,7 +319,7 @@ export default function Driverlist() {
                                 deleteUser(row.id);
                               }}
                             />
-                          {/* </Stack> */}
+                          </Stack>
                         </TableCell>
 
                   </TableRow>

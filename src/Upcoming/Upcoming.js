@@ -1,6 +1,4 @@
 import React from 'react'
-import NavBar from '../Components/NavBar'
-import SideBar from '../Components/SideBar'
 import { Box } from '@mui/material'
 import DataUp from './DataUp'
 import MiniDrawer from '../Components/MiniDrawer'

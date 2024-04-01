@@ -141,7 +141,7 @@ useEffect(() => {
       </Modal>
     </div> */}
 
-<div style={{padding:"20px",paddingLeft:"40px"}}>
+<div>
     <Paper sx={{ width: '100%', overflow: 'hidden' }}> 
           <Divider />
           {/* <Box height={10} /> */}
