@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Toolbar } from '@mui/material';
+import {Toolbar } from '@mui/material';
 import Driverlist from './Driverlist';
 import MiniDrawer from '../Components/MiniDrawer';
 
@@ -10,7 +10,7 @@ const Drivers = () => {
   <>
     
     <MiniDrawer/>
-    <div component="main" >
+    <div className="main">
     <div className='container mt-3'>
     <div className='row'>
         <div className='col-md'>

@@ -2,13 +2,13 @@ import React from 'react'
 import Toolbar from '@mui/material/Toolbar';
 import { Box, TextField, Grid, Button, Divider, CardHeader } from '@mui/material'
 import Paper from '@mui/material/Paper';
-import MiniDrawer from './Components/MiniDrawer';
+import MiniDrawer from '../Components/MiniDrawer';
 
 const Reports = () => {
   return (
     <>
       <MiniDrawer/>
-      <div component="main" >
+      <div className="main" >
       <div className='container mt-3'>
       <div className='row'>
         <div className='col-md'>

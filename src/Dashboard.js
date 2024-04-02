@@ -11,6 +11,7 @@ const Dashboard = () => {
   return (
 
     <>
+    <div className='main'>
     <MiniDrawer/>
       <div component="main"  >
       <div className='container mt-3'>
@@ -99,18 +100,18 @@ const Dashboard = () => {
       <br/><br/><br/><br/><br/><br/>
 
 
-      <div className="col">
+    <div className="col">
       <Card className="wide" style={{backgroundColor:"#5A0D9C"}}>
-         <div  className='center'>         
-          <p className='head'>
-                       NO.OF USERS
-          </p>
-</div>
-             <h5 className="caerd-title  title">
+          <div  className='center'>         
+              <p className='head'>
+                        NO.OF USERS
+              </p>
+          </div>
+            <h5 className="caerd-title  title">
             <CountUp duration={0.9} delay={0.2} end={15}/>
             </h5>
       </Card>
-      </div>
+    </div>
       <br/><br/><br/><br/><br/><br/>
 
     </div>
@@ -121,8 +122,8 @@ const Dashboard = () => {
       </div>
     </div>
     </div>
-
-    </>
+  </div>
+</>
   )
 }
 

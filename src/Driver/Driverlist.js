@@ -146,7 +146,7 @@ export default function Driverlist() {
 
   return (
 <>
-<div>
+    <div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -154,7 +154,7 @@ export default function Driverlist() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         <AddDriver closeEvent={handleClose}/>
+          <AddDriver closeEvent={handleClose}/>
         </Box>
       </Modal>
     </div>
@@ -338,6 +338,6 @@ export default function Driverlist() {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
-    </>
+</>
   );
 }

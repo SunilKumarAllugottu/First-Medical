@@ -9,7 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { useState, useEffect } from 'react';
 import Box from "@mui/material/Box";
-import { db } from './Driver/Firebase-config';
+import { db } from '../Driver/Firebase-config';
 import Stack from '@mui/material/Stack';
 
 import {
@@ -21,8 +21,8 @@ import {
   // doc,
 } from "firebase/firestore";
 import { Divider } from '@mui/material';
-import { useAppStore } from './appStore';
-import MiniDrawer from './Components/MiniDrawer';
+import { useAppStore } from '../appStore';
+import MiniDrawer from '../Components/MiniDrawer';
 
 
 
@@ -76,7 +76,7 @@ useEffect(() => {
   return (
     <>
     <MiniDrawer/>
-    
+    <div className='main'>
     <Stack>
     
     <div component="main" >
@@ -188,6 +188,7 @@ useEffect(() => {
     </div>
     </div>
     </Stack>
+    </div>
   </>
   )
 }

@@ -8,7 +8,7 @@ const OngoingRide = () => {
   return (
     <>
     <MiniDrawer/>
-    <div component="main" >
+    <div className="main" >
     <div className='container mt-3'>
     <div className='row'>
       <div className='col-md'>

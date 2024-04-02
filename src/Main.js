@@ -3,8 +3,8 @@ import Dashboard from './Dashboard';
 import ScheduleRide from './Schedule/ScheduleRide'
 import OngoingRide from './Ongoing/OngoingRide'
 import {BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import Settings from './Settings';
-import Reports from './Reports';
+import Settings from './Reports/Settings';
+import Reports from './Reports/Reports';
 import Users from './User/Users';
 import Vehicles from './Vehicles/Vehicles';
 import Drivers from '../src/Driver/Drivers';
@@ -12,7 +12,6 @@ import Upcoming  from './Upcoming/Upcoming';
 import Newrequest from './Schedule/Newrequest';
 import Login from './Components/Login';
 import { useState, useEffect } from 'react';
-import MiniDrawer from './Components/MiniDrawer';
 
 
 const Main = () => {
