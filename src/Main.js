@@ -34,7 +34,7 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
-     <BrowserRouter>
+      <BrowserRouter>
     <Routes>
     <Route
           exact

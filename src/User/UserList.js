@@ -262,8 +262,8 @@ useEffect(() => {
                           {row.documents}
                         </TableCell> */}
 
-                        <TableCell align='center'>
-                          {/* <Stack spacing={2} direction="row" align="center" > */}
+                        <TableCell >
+                          <Stack spacing={2} direction="row" alignItems="center" justifyContent="center">
                             <EditIcon
                               style={{
                                 fontSize: "25px",
@@ -284,7 +284,7 @@ useEffect(() => {
                                 deleteUser(row.id);
                               }}
                             />
-                          {/* </Stack> */}
+                          </Stack>
                         </TableCell>
                   </TableRow>
                 );
